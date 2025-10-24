@@ -13,5 +13,15 @@ public class MoveBehaviour : MonoBehaviour
     {
         _rb.linearVelocityX = direction.x * speed;
     }
-    //public void ChangeGravity()
+    public void ChangeGravity(bool gravity)
+    {
+        if (gravity)
+        {
+            _rb.gravityScale = 1;
+        }
+        else 
+        {
+            _rb.gravityScale = -1;
+        }
+    }
 }

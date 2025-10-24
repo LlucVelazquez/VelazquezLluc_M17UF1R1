@@ -22,7 +22,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //_mb.ChangeGravity()
     }
 
     public void OnMove(InputAction.CallbackContext context)
