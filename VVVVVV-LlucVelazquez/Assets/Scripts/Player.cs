@@ -29,4 +29,15 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         _mb.MoveCharacter(context.ReadValue<Vector2>());
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 9)
+        {
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        inputActions.Disable();
+    }
 }
