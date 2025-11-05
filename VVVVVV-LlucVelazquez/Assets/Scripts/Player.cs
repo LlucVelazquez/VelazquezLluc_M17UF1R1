@@ -30,7 +30,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        _mb.MoveCharacter(context.ReadValue<Vector2>());
+        Vector2 direction = context.ReadValue<Vector2>();
+        direction.y = 0;
+        _mb.MoveCharacter(direction);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
