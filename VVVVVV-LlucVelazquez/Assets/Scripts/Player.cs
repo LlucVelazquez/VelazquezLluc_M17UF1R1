@@ -5,6 +5,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     private MoveBehaviour _mb;
     private InputSystem_Actions inputActions;
+    private int gravity = 1;
+
     private void Awake()
     {
         _mb = GetComponent<MoveBehaviour>();
@@ -14,7 +16,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private void OnEnable()
     {
         inputActions.Enable();
-
     }
     private void OnDisable()
     {
@@ -22,7 +23,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        //_mb.ChangeGravity()
+        gravity = gravity * -1;
+        _mb.ChangeGravity(gravity);
+        
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -31,7 +34,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 9)
+        if(collision.gameObject.layer == 8)
         {
             GameOver();
         }
