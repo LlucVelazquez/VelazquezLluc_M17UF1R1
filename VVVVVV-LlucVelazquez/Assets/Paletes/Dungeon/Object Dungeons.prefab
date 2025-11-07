@@ -2016,7 +2016,7 @@ GameObject:
   - component: {fileID: 8076224701018735000}
   - component: {fileID: 3054678230211668530}
   m_Layer: 0
-  m_Name: Rectangular Palette
+  m_Name: Object Dungeons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

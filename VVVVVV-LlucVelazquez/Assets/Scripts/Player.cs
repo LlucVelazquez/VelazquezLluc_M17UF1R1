@@ -6,6 +6,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private MoveBehaviour _mb;
     private InputSystem_Actions inputActions;
     private int gravity = 1;
+    float Xdirection = 0f;
 
     private void Awake()
     {
@@ -27,12 +28,15 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mb.ChangeGravity(gravity);
         
     }
+    private void Update()
+    {
+        _mb.MoveCharacter(new Vector2 (Xdirection, 0));
 
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 direction = context.ReadValue<Vector2>();
-        direction.y = 0;
-        _mb.MoveCharacter(direction);
+        Xdirection = context.ReadValue<Vector2>().x;
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
