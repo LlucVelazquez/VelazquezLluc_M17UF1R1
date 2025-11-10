@@ -2,13 +2,19 @@ using UnityEngine;
 
 public class BulletEnemy : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Rigidbody2D _rb;
+    private float speed;
+    public SpawnBullet spawner;
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
+        speed = 4;
+        _rb.linearVelocityY = speed;
+        Destroy(gameObject, 3f);
+        spawner.BulletsStack.Push(gameObject);
+        gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         
