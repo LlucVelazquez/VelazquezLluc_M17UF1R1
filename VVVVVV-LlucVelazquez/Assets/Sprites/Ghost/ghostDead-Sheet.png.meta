@@ -140,7 +140,7 @@ TextureImporter:
         x: 0
         y: 0
         width: 32
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: ghostDead-Sheet_1
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 0
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: ghostDead-Sheet_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
-        width: 28
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,10 +203,10 @@ TextureImporter:
       name: ghostDead-Sheet_3
       rect:
         serializedVersion: 2
-        x: 98
+        x: 96
         y: 0
-        width: 28
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: ghostDead-Sheet_4
       rect:
         serializedVersion: 2
-        x: 130
+        x: 128
         y: 0
-        width: 30
-        height: 23
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,7 +250,7 @@ TextureImporter:
         x: 160
         y: 0
         width: 32
-        height: 14
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -272,7 +272,7 @@ TextureImporter:
         x: 192
         y: 0
         width: 32
-        height: 5
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,7 +294,7 @@ TextureImporter:
         x: 224
         y: 0
         width: 32
-        height: 5
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 12755bd4803e4954aaac413312950498
     internalID: 0
     vertices: []
     indices: 

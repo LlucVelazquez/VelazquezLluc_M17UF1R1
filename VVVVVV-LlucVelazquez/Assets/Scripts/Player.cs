@@ -7,12 +7,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private InputSystem_Actions inputActions;
     private int gravity = 1;
     float Xdirection = 0f;
+    private Animator animator;
 
     private void Awake()
     {
         _mb = GetComponent<MoveBehaviour>();
         inputActions = new InputSystem_Actions();
         inputActions.Player.SetCallbacks(this);
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -36,6 +38,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         Xdirection = context.ReadValue<Vector2>().x;
+        if (Xdirection != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
