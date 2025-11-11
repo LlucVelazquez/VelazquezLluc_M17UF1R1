@@ -28,7 +28,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         gravity = gravity * -1;
         _mb.ChangeGravity(gravity);
-        
+        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1);
     }
     private void Update()
     {
