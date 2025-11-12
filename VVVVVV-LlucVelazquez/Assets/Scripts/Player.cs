@@ -50,13 +50,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 7 || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             GameOver();
         }
     }
     public void GameOver()
     {
+        animator.SetBool("isDead", true);
         inputActions.Disable();
     }
 }

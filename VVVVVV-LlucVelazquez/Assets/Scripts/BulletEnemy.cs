@@ -4,19 +4,23 @@ public class BulletEnemy : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private float speed;
-    public SpawnBullet spawner;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        speed = 4;
-        _rb.linearVelocityY = speed;
-        Destroy(gameObject, 3f);
-        spawner.BulletsStack.Push(gameObject);
-        gameObject.SetActive(false);
+        speed = -2;
+        _rb.linearVelocity = new Vector2(0, speed);
+        Destroy(gameObject, 1f);
     }
 
     void Update()
     {
         
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 10 || collision.gameObject.layer == 6)
+        {
+            Destroy(gameObject);
+        }
     }
 }

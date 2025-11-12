@@ -15,7 +15,7 @@ public class SpawnBullet : MonoBehaviour
     }
     void Update()
     {
-        if(Time.time >= timeBetweenBullets)
+        /*if(Time.time >= timeBetweenBullets)
         {
             if (BulletsStack.Count == 0)
             {
@@ -26,6 +26,11 @@ public class SpawnBullet : MonoBehaviour
             {
                 Pop();
             }
+            timeBetweenBullets += initialTime;
+        }*/
+        if (Time.time >= timeBetweenBullets)
+        {
+            Instantiate(bullet);
             timeBetweenBullets += initialTime;
         }
     }
