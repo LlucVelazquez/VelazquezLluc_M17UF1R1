@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private int gravity = 1;
     float Xdirection = 0f;
     private Animator animator;
+    private SpriteRenderer _sr;
 
     private void Awake()
     {
@@ -15,6 +16,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         inputActions = new InputSystem_Actions();
         inputActions.Player.SetCallbacks(this);
         animator = GetComponent<Animator>();
+        _sr = GetComponent<SpriteRenderer>();
     }
     private void OnEnable()
     {
@@ -45,6 +47,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         else
         {
             animator.SetBool("isRunning", false);
+        }
+        if (Xdirection > 0)
+        {
+            _sr.flipX = false;
+        }
+        else
+        {
+            _sr.flipX = true;
         }
 
     }

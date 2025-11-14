@@ -12,7 +12,7 @@ public class ParallaxEffect : MonoBehaviour
         _startingPos = transform.position.x;
         _lengthOfSprite = GetComponent<SpriteRenderer>().bounds.size.x;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 Position = MainCamera.transform.position;
         float Temp = Position.x * (1 - AmountOfParallax);

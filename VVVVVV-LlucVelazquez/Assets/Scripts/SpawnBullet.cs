@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnBullet : MonoBehaviour
 {
     private float timeBetweenBullets = 0f;
-    private float initialTime = 3f;
+    private float initialTime = 1f;
     [SerializeField] private GameObject bullet;
     public Stack<GameObject> BulletsStack = new Stack<GameObject>();
     void Start()
@@ -30,8 +30,8 @@ public class SpawnBullet : MonoBehaviour
         }*/
         if (Time.time >= timeBetweenBullets)
         {
-            Instantiate(bullet);
-            timeBetweenBullets += initialTime;
+            Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+            timeBetweenBullets = initialTime + Time.time;
         }
     }
     public void Push(GameObject go)
