@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField] private GameObject menu;
-    public void PauseGame()
+    public GameObject menu;
+
+    private void Update()
     {
-        menu.SetActive(true);
-        Time.timeScale = 0;
-    }
-    public void ResumeGame()
-    {
-        menu.SetActive(false);
-        Time.timeScale = 1f;
+        AudioClip clip = AudioManager.Instance.clipList[AudioClips.Music];
     }
 }

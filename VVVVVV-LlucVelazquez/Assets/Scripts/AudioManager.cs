@@ -9,7 +9,7 @@ public enum AudioClips
     Idle,
     Shoot,
     Enemy,
-    Nose
+    Music
 }
 
 public class AudioManager : MonoBehaviour
@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour
         clipList.Add(AudioClips.Idle, _clip[4]);
         clipList.Add(AudioClips.Shoot, _clip[5]);
         clipList.Add(AudioClips.Enemy, _clip[6]);
-        clipList.Add(AudioClips.Nose, _clip[7]);
+        clipList.Add(AudioClips.Music, _clip[7]);
 
 
 
