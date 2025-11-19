@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 [RequireComponent(typeof(MoveBehaviour))]
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     float Xdirection = 0f;
     private Animator animator;
     private SpriteRenderer _sr;
+    private float posX;
 
     private void Awake()
     {
@@ -63,6 +65,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if(collision.gameObject.layer == 7 || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             GameOver();
+        }
+        if(collision.gameObject.layer == 11)
+        {
+            posX = transform.position.x;
+            transform.position = new Vector3 (posX, -7.83f, -0.1f);
+            
         }
     }
     public void GameOver()

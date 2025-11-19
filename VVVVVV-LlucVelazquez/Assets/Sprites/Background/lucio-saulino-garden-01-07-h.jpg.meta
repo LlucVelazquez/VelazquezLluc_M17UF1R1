@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bada5d15e449a114fa81527588878649
+guid: c277bb43389459246aa923ca2090ab58
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5036862931438644255
-    second: Part 1 Free_0
+      213: -3471850499017900276
+    second: lucio-saulino-garden-01-07-h_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Part 1 Free_0
+      name: lucio-saulino-garden-01-07-h_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 216
-        height: 360
+        width: 1920
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e3544da9d7791ab0800000000000000
-      internalID: -5036862931438644255
+      spriteID: c0f76c4ad5281dfc0800000000000000
+      internalID: -3471850499017900276
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Part 1 Free_0: -5036862931438644255
+      lucio-saulino-garden-01-07-h_0: -3471850499017900276
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

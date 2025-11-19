@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool gamePaused = false;
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -30,5 +30,13 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
         gamePaused = true;
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
