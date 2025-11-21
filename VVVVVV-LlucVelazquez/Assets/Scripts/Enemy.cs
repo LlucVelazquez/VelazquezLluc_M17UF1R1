@@ -19,8 +19,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         _rb.linearVelocityX = speed;
-        AudioManager.Instance.PlaySource(AudioClips.Enemy);
-        AudioManager.Instance.RepeatSource(true);
+        /*AudioManager.Instance.PlaySource(AudioClips.Enemy);
+        AudioManager.Instance.RepeatSource(true);*/
         if (LimitL.transform.position.x >= _rb.transform.position.x)
         {
             _sr.flipX = false;

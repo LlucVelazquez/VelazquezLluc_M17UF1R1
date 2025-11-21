@@ -34,6 +34,7 @@ public class SpawnBullet : MonoBehaviour
                 else
                 {
                     Pop();
+                    AudioManager.Instance.PlaySource(AudioClips.Shoot);
                 }
                 _timer = 0;
             }
