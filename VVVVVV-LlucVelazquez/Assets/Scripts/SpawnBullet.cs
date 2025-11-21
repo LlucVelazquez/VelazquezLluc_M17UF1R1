@@ -11,6 +11,8 @@ public class SpawnBullet : MonoBehaviour
     public Stack<GameObject> BulletsStack = new Stack<GameObject>();
     public Camera camera;
     private float _timer;
+    public float bulletX;
+    public float bulletY;
     void Start()
     {
         camera = Camera.main;
@@ -55,7 +57,8 @@ public class SpawnBullet : MonoBehaviour
         go.SetActive(true);
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.identity;
-        go.GetComponent<Rigidbody2D>().linearVelocityY = -3f;
+        go.GetComponent<Rigidbody2D>().linearVelocityY = bulletY;
+        go.GetComponent<Rigidbody2D>().linearVelocityX = bulletX;
         return go;
     }
 }

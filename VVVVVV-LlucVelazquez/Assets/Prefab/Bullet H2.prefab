@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8841468500842259579}
   - component: {fileID: 3540031767457834165}
   m_Layer: 9
-  m_Name: Bullet
+  m_Name: Bullet H2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5945c764ea044f040a9aef5c28ad3ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 0
-  speedY: -3
+  speedX: -3
+  speedY: 0
   spawner: {fileID: 0}
 --- !u!50 &-5602844642135573086
 Rigidbody2D:
@@ -121,7 +121,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

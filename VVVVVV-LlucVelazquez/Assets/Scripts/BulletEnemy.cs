@@ -3,13 +3,13 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    public float speed;
+    public float speedX;
+    public float speedY;
     public SpawnBullet spawner;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        speed = -3;
-        _rb.linearVelocity = new Vector2(0, speed);
+        _rb.linearVelocity = new Vector2(speedX, speedY);
     }
 
     void Update()
