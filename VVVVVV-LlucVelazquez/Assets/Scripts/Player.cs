@@ -11,6 +11,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private Animator animator;
     private SpriteRenderer _sr;
     private float posX;
+    public GameObject gameOverMenu;
+    public GameObject gameWinMenu;
 
     private void Awake()
     {
@@ -69,13 +71,22 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if(collision.gameObject.layer == 11)
         {
             posX = transform.position.x;
-            transform.position = new Vector3 (posX, -7.83f, -0.1f);
-            
+            transform.position = new Vector3 (posX, -7.83f, -0.1f);   
+        }
+        if (collision.gameObject.layer == 12)
+        {
+            GameWin();
         }
     }
     public void GameOver()
     {
         animator.SetBool("isDead", true);
         inputActions.Disable();
+        gameOverMenu.SetActive(true);
+    }
+    public void GameWin()
+    {
+        inputActions.Disable();
+        gameWinMenu.SetActive(true);
     }
 }
