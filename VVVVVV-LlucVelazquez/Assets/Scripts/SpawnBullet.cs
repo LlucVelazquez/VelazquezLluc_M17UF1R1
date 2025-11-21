@@ -5,34 +5,44 @@ using UnityEngine;
 
 public class SpawnBullet : MonoBehaviour
 {
-    private float timeBetweenBullets = 0f;
+    private float timeBetweenBullets = 1f;
     private float initialTime = 1f;
     [SerializeField] private GameObject bullet;
     public Stack<GameObject> BulletsStack = new Stack<GameObject>();
+    public Camera camera;
+    private float _timer;
     void Start()
     {
-        
+        camera = Camera.main;
     }
     void Update()
     {
-        /*if(Time.time >= timeBetweenBullets)
+        _timer += Time.deltaTime;
+        Vector2 viewportPoint = camera.WorldToViewportPoint(transform.position);
+        if (viewportPoint.x >= 0f && viewportPoint.x <= 1f && viewportPoint.y >= 0f && viewportPoint.y <= 1f)
         {
-            if (BulletsStack.Count == 0)
+            if (_timer >= timeBetweenBullets)
             {
-                GameObject bullett = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
-                bullett.GetComponent<BulletEnemy>().spawner = this;
+                if (BulletsStack.Count == 0)
+                {
+                    AudioManager.Instance.PlaySource(AudioClips.Shoot);
+                    GameObject bullett = Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
+                    bullett.GetComponent<BulletEnemy>().spawner = this;
+                }
+                else
+                {
+                    Pop();
+                }
+                _timer = 0;
             }
-            else
-            {
-                Pop();
-            }
-            timeBetweenBullets += initialTime;
-        }*/
-        if (Time.time >= timeBetweenBullets)
+        }
+        
+        /*if (Time.time >= timeBetweenBullets)
         {
+            AudioManager.Instance.PlaySource(AudioClips.Shoot);
             Instantiate(bullet, gameObject.transform.position, Quaternion.identity);
             timeBetweenBullets = initialTime + Time.time;
-        }
+        }*/
     }
     public void Push(GameObject go)
     {
@@ -45,7 +55,7 @@ public class SpawnBullet : MonoBehaviour
         go.SetActive(true);
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.identity;
-        go.GetComponent<Rigidbody2D>().linearVelocityY = 4;
+        go.GetComponent<Rigidbody2D>().linearVelocityY = -3f;
         return go;
     }
 }

@@ -3,13 +3,13 @@ using UnityEngine;
 public class BulletEnemy : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    private float speed;
+    public float speed;
+    public SpawnBullet spawner;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        speed = -2;
+        speed = -3;
         _rb.linearVelocity = new Vector2(0, speed);
-        Destroy(gameObject, 1f);
     }
 
     void Update()
@@ -20,7 +20,8 @@ public class BulletEnemy : MonoBehaviour
     {
         if(collision.gameObject.layer == 10 || collision.gameObject.layer == 6)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            spawner.Push(gameObject);
         }
     }
 }

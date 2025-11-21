@@ -14,6 +14,7 @@ public enum AudioClips
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+    private AudioSource _audioSource;
     [SerializeField] private List<AudioClip> _clip = new List<AudioClip>();
     public Dictionary<AudioClips, AudioClip> clipList = new Dictionary<AudioClips, AudioClip>();
     private void Awake()
@@ -27,10 +28,19 @@ public class AudioManager : MonoBehaviour
         clipList.Add(AudioClips.Shoot, _clip[5]);
         clipList.Add(AudioClips.Enemy, _clip[6]);
 
-
-
-
-
-
+        _audioSource = GetComponent<AudioSource>();
+    }
+    public void PlaySource(AudioClips clip)
+    {
+        _audioSource.clip = clipList.GetValueOrDefault(clip);
+        _audioSource.Play();
+    }
+    public void StopSource()
+    {
+        _audioSource.Stop();
+    }
+    public void RepeatSource(bool repeat)
+    {
+        _audioSource.loop = repeat;
     }
 }

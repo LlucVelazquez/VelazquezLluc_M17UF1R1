@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -11,9 +12,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private Animator animator;
     private SpriteRenderer _sr;
     private float posX;
-    public GameObject gameOverMenu;
     public GameObject gameWinMenu;
-
+    public static event Action death = delegate { };
     private void Awake()
     {
         _mb = GetComponent<MoveBehaviour>();
@@ -35,6 +35,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         gravity = gravity * -1;
         _mb.ChangeGravity(gravity);
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1);
+        if (context.performed)
+        {
+            AudioManager.Instance.PlaySource(AudioClips.Fly);
+        }
     }
     private void Update()
     {
@@ -44,6 +48,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         Xdirection = context.ReadValue<Vector2>().x;
+        if (context.performed)
+        {
+            AudioManager.Instance.PlaySource(AudioClips.Walk);
+            AudioManager.Instance.RepeatSource(true);
+        }
         if (Xdirection != 0)
         {
             animator.SetBool("isRunning", true);
@@ -60,13 +69,20 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         {
             _sr.flipX = true;
         }
+        if (context.canceled)
+        {
+            AudioManager.Instance.RepeatSource(false);
+            AudioManager.Instance.StopSource();
+        }
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.layer == 7 || collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            GameOver();
+            animator.SetBool("isDead", true);
+            death.Invoke();
+            inputActions.Disable();
         }
         if(collision.gameObject.layer == 11)
         {
@@ -78,12 +94,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             GameWin();
         }
     }
-    public void GameOver()
-    {
-        animator.SetBool("isDead", true);
-        inputActions.Disable();
-        gameOverMenu.SetActive(true);
-    }
+    
     public void GameWin()
     {
         inputActions.Disable();
